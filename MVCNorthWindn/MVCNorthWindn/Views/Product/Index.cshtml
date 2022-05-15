@@ -1,0 +1,59 @@
+﻿@model List<MVCNorthWindn.Models.Product>
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">@ViewBag.Title</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/home/index">Northwind</a></li>
+            <li class="breadcrumb-item active">Ürün Tabloları</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Ürün Listesi
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary float-end ms-3" href="/Product/AddProduct">Ürün Ekle</a>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>ProductID</th>
+                            <th>Ürün Adı</th>
+                            <th>Kategori Adı</th>
+                            <th>Tedarikçi</th>
+                            <th>Ürün Fiyat</th>
+                            <th>Ürün Stok</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                <td>@product.ProductID</td>
+                                <td>@product.ProductName</td>
+                                <td>@product.Category.CategoryName</td>
+                                @if (product.SupplierID != null)
+                                {
+                                    <td>@product.Supplier.CompanyName</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                <td>@product.UnitPrice</td>
+                                <td>@product.UnitsInStock</td>
+                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+

@@ -1,0 +1,46 @@
+﻿@model List<MVCNorthWindn.Models.Category>
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">@ViewBag.Title</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/home/index">Northwind</a></li>
+            <li class="breadcrumb-item active">Kategori Tabloları</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Kategori Listesi
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary float-end ms-3" href="/Category/AddCategory">Kategori Ekle</a>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>CategoryID</th>
+                            <th>Kategori Adı</th>
+                            <th>Bilgi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var category in Model)
+                        {
+                            <tr>
+                                <td>@category.CategoryID</td>
+                                <td>@category.CategoryName</td>
+                                <td>@category.Description</td>
+                                @*<td>
+                                <a href="/product/delete/@category.CategoryID" class="btn btn-xs btn-danger">Delete</a>
+                                </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

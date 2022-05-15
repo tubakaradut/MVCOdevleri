@@ -1,0 +1,57 @@
+﻿@model List<MVCNorthWindn.Models.Order>
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">@ViewBag.Title</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/home/index">Northwind</a></li>
+            <li class="breadcrumb-item active">Sipariş Tabloları</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Sipariş Listesi
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary float-end ms-3" href="/Order/Addorder">Sipariş Ekle</a>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>Müşteri Şirket Adı</th>
+                            <th>Çalışan Adı</th>
+                            <th>Nakliye Firması</th>
+                            <th>Sipariş Tarihi</th>
+                            <th>Sipariş Ücreti</th>
+                            <th>Alıcı Adı</th>
+                            <th>Alıcının Ülkesi</th>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td>@order.OrderID</td>
+                                <td>@order.Customer.CompanyName</td>
+                                <td>@order.Employee.FirstName @order.Employee.LastName</td>
+                                <td>@order.ShipVia</td>
+                                <td>@order.OrderDate</td>
+                                <td>@order.Freight</td>         @*taşıma bedeli*@
+                                <td>@order.ShipName</td>        
+                                <td>@order.ShipCountry</td>   
+                                
+                                @*<td>
+                                    <a href="/order/delete/@order.OrderID" class="btn btn-xs btn-danger">Delete</a>
+                                </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+

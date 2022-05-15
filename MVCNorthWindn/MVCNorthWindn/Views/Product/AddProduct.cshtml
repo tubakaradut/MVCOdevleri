@@ -1,0 +1,73 @@
+﻿
+@{
+    //ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container" style="background-color:aliceblue">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Ürün Ekleme</h3></div>
+                    <div class="card-body">
+                        <form action="/Product/AddProduct" method="post" role="form">
+
+                            <label for="inputFirstName">Ürün Adı</label>
+                            <div class="form-floating mb-3">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" id="inputFirstName" type="text" name="ProductName" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="inputFirstName">Fiyatı</label>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputFirstName" type="number" name="UnitPrice"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputFirstName">Stok Miktarı</label>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputFirstName" type="number" name="UnitsInStock" />
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="inputFirstName">Kategori Seçiniz</label>
+                            <div class="form-floating mb-3">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <select name="CategoryID" style="width: 100%; height: 3rem">
+                                        @foreach (MVCNorthWindn.Models.Category category in (List<MVCNorthWindn.Models.Category>)ViewBag.Kategori)
+                                        {
+                                            <option value="@category.CategoryID">@category.CategoryName</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <label for="inputFirstName">Tedarikçi Seçiniz</label>
+                            <div class="form-floating mb-3">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <select name="SupplierID" style="width: 100%; height: 3rem">
+                                        @foreach (MVCNorthWindn.Models.Supplier supplier in (List<MVCNorthWindn.Models.Supplier>)ViewBag.Tedarikci)
+                                        {
+                                            <option value="@supplier.SupplierID">@supplier.CompanyName</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ekle</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+
+

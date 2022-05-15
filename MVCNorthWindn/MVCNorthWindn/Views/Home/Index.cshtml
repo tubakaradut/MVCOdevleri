@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <main>
+        <div class="container-fluid px-4">
+            <h3 class="mt-4">~ KUZEY RÜZGARI VERİLERİ ~</h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active"></li>
+            </ol>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-primary text-white mb-4">
+                        <div class="card-body">Ürün Sayısı</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="#">@ViewBag.ProductCount</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-warning text-white mb-4">
+                        <div class="card-body">Çalısanlar</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="#">@ViewBag.EmployeeCount</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-success text-white mb-4">
+                        <div class="card-body">Müşteriler</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="#">@ViewBag.CustomerCount</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-danger text-white mb-4">
+                        <div class="card-body">Sipariş Sayısı</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="#">@ViewBag.OrderCount</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Son Alınan Siparişler
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>OrderID</th>
+                                <th>Müşteri Şirket Adı</th>
+                                <th>Çalısan Adı</th>
+                                <th>Sİpariş Tarihi</th>
+                                <th>Nakliye Adı</th>
+                                <th>Detay</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>OrderID</th>
+                                <th>Müşteri Şirket Adı</th>
+                                <th>Çalısan Adı</th>
+                                <th>Sİpariş Tarihi</th>
+                                <th>Nakliye Adı</th>
+                                <th>Detay</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (MVCNorthWindn.Models.Order order in TempData["Orders"] as List<MVCNorthWindn.Models.Order>)
+                            {
+                                <tr>
+                                    <td>@order.OrderID</td>
+                                    <td>@order.Customer.CompanyName</td>
+                                    <td>@order.Employee.FirstName @order.Employee.LastName</td>
+                                    <td>@order.OrderDate.ToString()</td>
+                                    <td>@order.ShipName</td>
+                                    <td><a href="/home/details/@order.OrderID">Detay İçin</a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">@*Copyright &copy; Your Website 2022*@</div>
+            <div>
+                @*<a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>*@
+            </div>
+        </div>
+    </div>
+</footer>
+
+

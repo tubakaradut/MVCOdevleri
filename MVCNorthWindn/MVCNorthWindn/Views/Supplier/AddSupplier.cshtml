@@ -1,0 +1,71 @@
+﻿
+@{
+    //ViewBag.Title = "AddSupplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container" style="background-color:aliceblue">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Müşteri Ekleme</h3></div>
+                    <div class="card-body">
+                        <form action="/Supplier/AddSupplier" method="post" role="form">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="inputFirstName">Tedarikçi ID</label>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputFirstName" type="text" name="SupplierID" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputFirstName">Şirket Adı</label>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputFirstName" type="text" name="CompanyName" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="inputFirstName">Yetkili Kişi Adı</label>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputFirstName" type="text" name="ContactName" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputFirstName">Yetkili Kişi Ünvanı</label>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputFirstName" type="text" name="ContactTitle" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="inputFirstName">Ülkesi</label>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputFirstName" type="text" name="Country" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputFirstName">Kenti</label>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="inputFirstName" type="text" name="City" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ekle</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+

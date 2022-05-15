@@ -1,0 +1,43 @@
+﻿@model List<MVCNorthWindn.Models.Shipper>
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">@ViewBag.Title</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/home/index">Northwind</a></li>
+            <li class="breadcrumb-item active">Nakliye Firmaları Tabloları</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Nakliye Firmalarının Listesi
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary float-end ms-3" href="/Shipper/AddShipper">Nakliye Firması Ekle</a>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>ShipperID</th>
+                            <th>Şirket Adı</th>
+                            <th>Telefon</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var shipper in Model)
+                        {
+                            <tr>
+                                <td>@shipper.ShipperID</td>
+                                <td>@shipper.CompanyName</td>
+                                <td>@shipper.Phone</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+

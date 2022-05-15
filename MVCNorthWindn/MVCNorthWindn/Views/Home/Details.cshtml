@@ -1,0 +1,58 @@
+﻿@model MVCNorthWindn.Models.Order_Detail
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <div class="container-fluid px-4">
+        <h3 class="mt-4">Sipariş Detayları</h3>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/home/index">Northwind</a></li>
+            <li class="breadcrumb-item active">Tablolar</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Sipariş Detayları
+            </div>
+            <div class="card-body" style="mask-border:auto">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>ProductID</th>
+                            <th>Ürün Adı</th>
+                            <th>Ürün Fiyatı</th>
+                            <th>Miktar</th>
+                            <th>İndirim</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.OrderID</td>
+                            <td>@Model.ProductID</td>
+                            <td>@Model.Product.ProductName</td>
+                            <td>@Model.UnitPrice</td>
+                            <td>@Model.Quantity</td>
+                            <td>@Model.Discount</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    window.addEventListener('DOMContentLoaded', event => {
+        // Simple-DataTables
+        // https://github.com/fiduswriter/Simple-DataTables/wiki
+
+        const datatablesSimple = document.getElementById('datatablesSimple');
+        if (datatablesSimple) {
+            new simpleDatatables.DataTable(datatablesSimple, { searchable: false, perPageSelect: false, paging: false, perPage: false });
+        }
+    });
+
+</script>
