@@ -23,5 +23,6 @@ namespace NWProduct.Controllers
             var detay = db.Products.FirstOrDefault(x => x.ProductID == id);
             return View(detay);
         }
+
     }
 }
