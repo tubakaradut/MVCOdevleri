@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model MVCHelpers.Models.UserModel
+@using (Html.BeginForm("Index", "Home3", FormMethod.Post))
+{
+
+    <b>Select Tea Typee: </b>
+    <br />
+    <span>Tea: </span> @Html.RadioButtonFor(m => m.TeaTypee, "Tea")
+    <span> | Coffee: </span> @Html.RadioButtonFor(m => m.TeaTypee, "Coffee")
+    <span> | BlackTea: </span> @Html.RadioButtonFor(m => m.TeaTypee, "BlackTea")
+    <span> | GreenTea: </span> @Html.RadioButtonFor(m => m.TeaTypee, "GreenTea")
+    <br />
+    <hr />
+    <b>Select Hotel: </b>
+    <br />
+    <span>Hotel Grand Plaza: </span> @Html.RadioButtonFor(m => m.HotelType, "HotelGrandPlaza")
+    <span> | Hotel Lake View: </span> @Html.RadioButtonFor(m => m.HotelType, "HotelLakeView")
+    <span> | Hotel River Side: </span> @Html.RadioButtonFor(m => m.HotelType, "HotelRiverSide")
+    <span> | Hotel Mountain View: </span> @Html.RadioButtonFor(m => m.HotelType, "MountainView")
+    <br />
+    
+}
+
+
+<p>
+    Html.RadioButtonFor(model => property, object value, object htmlAttributes)
+
+    Model=> özellik: bir model özelliğine atıfta bulunur.
+    Objectdeğer: Bu değer, radyo düğmesi seçilirse sunucuya gönderilir.
+    ObjectHtmlAttributes: Bir radyo düğmesine ek özellikler ayarlayın.
+</p>

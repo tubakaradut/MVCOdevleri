@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using MVCHelpers.Models
+@model UserModel2
+<br />
+<br />
+@using (Html.BeginForm("Index", "Home2", FormMethod.Post))
+{
+    <b>Select Tea Type: </b>
+    @Html.DropDownListFor(m => m.SelectTeaType, new SelectList(Enum.GetValues(typeof(TeaType))), "--Select TeaType--")
+    
+}
+
+
+<p>
+ Html.DropDownListFor , model özellikleriyle güçlü bir şekilde sınırlandırılır ve zamanında tüm hataları kontrol eder. Bu yöntemi kullanmadan önce, görünümleri bir modelle bağlamanız gerekir.
+    Html.DropDownListFor(model => model.property, IEnumerable<SelectLestItem>selectList, string optionLabel, object htmlAttributes)
+a. model => model.property: DropDownListFor'u belirli bir model özelliği ile bağlar.
+b. IEnumerable<SelectLestItem>selectList: Öğelerin listesidir.
+c. string optionsLabel , lütfen öğe seçin, öğe seçin, değer seçin vb. gibi bilgilendirici dizedir.
+d. object HtmlAttributes , açılır listeye ekstra özellikler ekler.
+</p>

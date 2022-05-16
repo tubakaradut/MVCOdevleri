@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ Html.BeginForm("KullaniciEkle", "index", FormMethod.Post, new { @style = "border-color:black; border-width:5px; border-style:solid;" });}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+
+            @Html.Label("KullaniciAdi", "Kullanıcı Adı")
+            @Html.TextBox("KullaniciAdi")
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            @Html.Label("İlgiAlani", "İlgi Alanlarınızı Seçiniz")
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-4">
+            @Html.CheckBox("Cevap A") Spor
+            @Html.CheckBox("Cevap B") Ekonomi
+            @Html.CheckBox("Cevap C") Seyahat
+            @Html.CheckBox("Cevap D") Diğer
+
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-2">
+            @Html.Label("Cinsiyet", "Cinsiyet Seçiniz")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+
+            @Html.RadioButton("Cinsiyet", "Erkek") Erkek
+            @Html.RadioButton("Cinsiyet", "Erkek") Kadın
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            @Html.DropDownList("TakimSeciniz", new[] {
+           new SelectListItem {Text="Fenerbahçe",Value="1"},
+            new SelectListItem {Text="Galatasaray",Value="2"},
+            new SelectListItem {Text="Baeşiktaş",Value="3"},
+            new SelectListItem {Text="TrabzonSpor",Value="4"},}, "Takım Seçiniz")
+        </div>
+    </div>
+
+    <br />
+</div>
+
+@{ Html.EndForm();}

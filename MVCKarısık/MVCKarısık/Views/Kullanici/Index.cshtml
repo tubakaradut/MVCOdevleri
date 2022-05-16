@@ -1,0 +1,38 @@
+﻿@model MVCKarısık.Models.Kullanici
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+    <form method="post">
+        <div>
+            <label>Username: </label>
+       
+            @Html.TextBoxFor(model => model.Username, new { @class = "col-md-3" })
+
+        </div>
+        <div>
+            <label>Cinsiyet: </label>
+          
+            @Html.DropDownListFor(model=>model.Cinsiyet,Model.CinsiyetSecim )
+           
+        </div>
+        <div>
+            <label>Ehliyet: </label>
+         
+            @Html.CheckBoxFor(model=>model.Ehliyet, new { @class = "col-md-3" })
+        </div>
+        <div>
+            <label>Medeni Durum: </label>
+        
+            @Html.RadioButtonFor(model => model.MedeniDurum,0)Bekar
+            @Html.RadioButtonFor(model => model.MedeniDurum,1)Evli
+            @Html.RadioButtonFor(model => model.MedeniDurum,3)Boşanmış
+        </div>
+        <button type="submit">Güncelle</button>
+    </form>
+
+</div>

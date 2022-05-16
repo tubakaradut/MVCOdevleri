@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using MVCHelpers.Models
+@model UserModel4
+
+
+@using (Html.BeginForm())
+{
+    //Basic Hidden Field
+    @Html.Hidden("BasicHiddenName", null, new { @id = "BasicHiddenName" })
+
+    //Strongly Typed Hidden Field
+    @Html.HiddenFor(m => m.UserId, new { id = "UserId" })
+    <br />
+    @Html.HiddenFor(m => m.UserName, new { id = "UserName" })
+
+    <input id="Submit" type="submit" value="submit" />
+}
+
+<hr />
+<h4>Html.Hidden - Basic Type</h4>
+<p><strong>Value:</strong> @ViewBag.basicname</p>
+<br />
+
+<h4>Html.HiddenFor - Strongly Type</h4>
+
+<p><strong>ID:</strong> @ViewBag.id</p>
+<p><strong>Name:</strong> @ViewBag.name</p>
+<p>
+    Bir form oluşturdunuz ve kullanıcılardan bazı bilgileri doldurmalarını istediniz. Arkada, ayrıca bazı kullanıcı bilgilerini toplamak ve bu bilgileri kullanıcı gönder düğmesine tıkladığında sunucuya göndermek istiyorsunuz. Bu bilgiler şunlar olabilir:
+
+    1. Kullanıcının Makinesinin IP adresi
+    2. Hangi tarayıcı kullanıcısının kullandığı
+    3. Hangi İşletim sistemi kullanıcısının kullandığı; Android, iOS, Linux veya Windows 7 vb
+    . 4. Güvenlik Simgesi
+    5. Gönderim Tarihi
+    6. Vb .
+
+    Böylece, kullanıcı formu doldururken, yukarıdaki tüm bilgileri toplayabilir ve bunları gizli bir alanda tutabilirsiniz.
+
+    Html.Hidden() , herhangi bir modelle sınırlı olmayan, basit bir türde yardımcı yöntem veya gevşek biçimde yazılmış bir yardımcı yöntemdir. 2 parametre içerir; Gizli Alan Adı ve Gizli Alan Değeri.
+</p>

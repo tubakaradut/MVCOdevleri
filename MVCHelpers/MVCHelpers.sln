@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCHelpers", "MVCHelpers\MVCHelpers.csproj", "{118F8E32-BE33-49FC-9D5E-B548CEC1C130}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{118F8E32-BE33-49FC-9D5E-B548CEC1C130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118F8E32-BE33-49FC-9D5E-B548CEC1C130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118F8E32-BE33-49FC-9D5E-B548CEC1C130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118F8E32-BE33-49FC-9D5E-B548CEC1C130}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A702C903-020C-4290-94AE-4C2C22975975}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,36 @@
+﻿
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <b>Want Additional Benefit: </b>
+    <br />
+    <span>Tea: </span> @Html.CheckBox("Tea", true)
+    <span> | Loundry: </span> @Html.CheckBox("Loundry", false)
+    <span> | Breakfast: </span> @Html.CheckBox("Breakfast", false)
+    <p>
+        Html.CheckBox()
+        Gevşek bir şekilde yazılmıştır. Model Özellikleri ile sınırlı olabilir veya olmayabilir.
+        Dize olarak özellik adını gerektirir.
+        Model özelliklerine ait olmayan parametre olarak yanlış bir dize geçtiyseniz derleme zamanı hatası vermez.
+        Çalışma zamanı hatası veriyor. Çalışma zamanı hatası, kullanıcıya kötü bir izlenim verir ve proje layıksa, sadece bir hata nedeniyle müşterinizi kaybedebilirsiniz.
+    </p>
+}
+
+
+@model MVCHelpers.Models.UserModel
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <b>Want Additional Benefit: </b>
+    <br />
+    <span>Tea: </span> @Html.CheckBoxFor(m => m.Tea, true)
+    <span> | Loundry: </span> @Html.CheckBoxFor(m => m.Loundry, false)
+    <span> | Breakfast: </span> @Html.CheckBoxFor(m => m.Breakfast, false)
+    <p>
+        Html.CheckBoxFor()
+        Güçlü bir şekilde yazılmıştır. Her zaman bir model özellikleriyle sınırlandırılacağı anlamına gelir.
+        Lambda ifadesi olarak özellik adını gerektirir.
+        Derleme zamanında kontrolleri kontrol eder ve herhangi bir hata bulunursa hatayı yükseltir.
+        Projeyi başlatmadan önce düzeltilebilecek derleme zamanı hatası verir. Hata atmadan kullanıcı deneyimini geliştirir.
+    </p>
+}
+
