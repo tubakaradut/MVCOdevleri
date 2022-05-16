@@ -1,0 +1,19 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Action("_CategoryPartial")
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                @Html.Partial("_ProductPartial",Model)
+            </div>
+
+        </div>
+    </div>
+</div>
+

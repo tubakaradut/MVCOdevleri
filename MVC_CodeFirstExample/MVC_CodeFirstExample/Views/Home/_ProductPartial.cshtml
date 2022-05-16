@@ -1,0 +1,14 @@
+﻿@model List<Product>
+
+@foreach (var product in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@product.ProductName</h5>
+
+            <p class="card-text">@product.UnitPrice</p>
+            <a href="#" class="btn btn-primary">Details</a>
+        </div>
+    </div>
+}
