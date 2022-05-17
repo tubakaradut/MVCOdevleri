@@ -1,4 +1,6 @@
-﻿using MVCNorthWindn.Models;
+﻿
+using MVCNorthWindn.CustomFilters;
+using MVCNorthWindn.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MVCNorthWindn.Controllers
 {
+    [AuthFilter]
     public class CategoryController : Controller
     {
         NORTHWNDEntities db = new NORTHWNDEntities();

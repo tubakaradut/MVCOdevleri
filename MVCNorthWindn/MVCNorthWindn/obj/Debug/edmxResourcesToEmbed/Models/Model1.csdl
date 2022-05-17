@@ -58,10 +58,23 @@
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ReportsTo" Type="Int32" />
     <Property Name="PhotoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Employees1" Relationship="Self.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
     <NavigationProperty Name="Employee1" Relationship="Self.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Employees" FromRole="Employees" ToRole="Orders" />
     <NavigationProperty Name="Territories" Relationship="Self.EmployeeTerritories" FromRole="Employees" ToRole="Territories" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ControllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="Order_Detail">
     <Key>
@@ -293,6 +306,7 @@
     <EntitySet Name="CustomerDemographics" EntityType="Self.CustomerDemographic" />
     <EntitySet Name="Customers" EntityType="Self.Customer" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Logs" EntityType="Self.Log" />
     <EntitySet Name="Order_Details" EntityType="Self.Order_Detail" />
     <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Products" EntityType="Self.Product" />

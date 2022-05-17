@@ -1,4 +1,6 @@
-﻿using MVCNorthWindn.Models;
+﻿
+using MVCNorthWindn.CustomFilters;
+using MVCNorthWindn.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +9,45 @@ using System.Web.Mvc;
 
 namespace MVCNorthWindn.Controllers
 {
+    
     public class HomeController : Controller
     {
         NORTHWNDEntities db = new NORTHWNDEntities();
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [AcFilter]
+        [HttpPost]
+        public ActionResult Login(Users user)
+        {
+            if (ModelState.IsValid)
+            {
+                bool sonuc = db.Employees.Any(x => x.UserName == user.UserName && x.Password == user.Password);
+
+                if (sonuc)
+                {
+                    Employee users = db.Employees.Where(x => x.UserName == user.UserName && x.Password == user.Password).FirstOrDefault();
+
+                    Session["login"] = users;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["error"] = "kullanıcı bilgileri hatalı!";
+                    return View(user);
+                }
+            }
+            else
+            {
+                return View(user);
+            }
+        }
+
+        [AuthFilter]
+        [AcFilter]
         public ActionResult Index()
         {
             var result1 = db.Products.Count(); //Toplam ürün sayısı
@@ -43,11 +80,16 @@ namespace MVCNorthWindn.Controllers
 
             return View();
         }
+
+        [AuthFilter]
+        [AcFilter]
         public ActionResult Details(int id)
         {
-            var detay = db.Order_Details.FirstOrDefault(x=>x.OrderID==id);
-             
+            var detay = db.Order_Details.FirstOrDefault(x => x.OrderID == id);
+
             return View(detay);
         }
+
+
     }
 }

@@ -62,6 +62,8 @@
     <Property Name="Notes" Type="ntext" />
     <Property Name="ReportsTo" Type="int" />
     <Property Name="PhotoPath" Type="nvarchar" MaxLength="255" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="EmployeeTerritories">
     <Key>
@@ -70,6 +72,17 @@
     </Key>
     <Property Name="EmployeeID" Type="int" Nullable="false" />
     <Property Name="TerritoryID" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LogDate" Type="datetime" Nullable="false" />
+    <Property Name="ActionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ControllerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Order Details">
     <Key>
@@ -329,6 +342,7 @@
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeTerritories" EntityType="Self.EmployeeTerritories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order Details" EntityType="Self.Order Details" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />

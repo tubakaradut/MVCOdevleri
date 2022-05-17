@@ -118,8 +118,8 @@
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -138,6 +138,8 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShipperController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="CustomFilters\AcFilter.cs" />
+    <Compile Include="CustomFilters\AuthFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,6 +153,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -192,6 +197,7 @@
     <Compile Include="Models\Territory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +227,8 @@
     <Content Include="Views\Shipper\AddShipper.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\AddOrder.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

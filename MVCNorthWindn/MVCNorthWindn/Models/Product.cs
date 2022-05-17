@@ -11,8 +11,7 @@ namespace MVCNorthWindn.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,6 +19,7 @@ namespace MVCNorthWindn.Models
         {
             this.Order_Details = new HashSet<Order_Detail>();
         }
+    
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public Nullable<int> SupplierID { get; set; }

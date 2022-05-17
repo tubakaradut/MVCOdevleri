@@ -57,6 +57,20 @@
           <ScalarProperty Name="Notes" ColumnName="Notes" />
           <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
           <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="NORTHWNDModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

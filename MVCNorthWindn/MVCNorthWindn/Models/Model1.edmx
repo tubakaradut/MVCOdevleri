@@ -67,6 +67,8 @@
           <Property Name="Notes" Type="ntext" />
           <Property Name="ReportsTo" Type="int" />
           <Property Name="PhotoPath" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EmployeeTerritories">
           <Key>
@@ -75,6 +77,17 @@
           </Key>
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="TerritoryID" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+          <Property Name="ActionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ControllerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Order Details">
           <Key>
@@ -334,6 +347,7 @@
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeTerritories" EntityType="Self.EmployeeTerritories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order Details" EntityType="Self.Order Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
@@ -458,10 +472,23 @@
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ReportsTo" Type="Int32" />
           <Property Name="PhotoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Employees1" Relationship="Self.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
           <NavigationProperty Name="Employee1" Relationship="Self.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Employees" FromRole="Employees" ToRole="Orders" />
           <NavigationProperty Name="Territories" Relationship="Self.EmployeeTerritories" FromRole="Employees" ToRole="Territories" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ControllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Order_Detail">
           <Key>
@@ -693,6 +720,7 @@
           <EntitySet Name="CustomerDemographics" EntityType="Self.CustomerDemographic" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Logs" EntityType="Self.Log" />
           <EntitySet Name="Order_Details" EntityType="Self.Order_Detail" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Products" EntityType="Self.Product" />
@@ -808,6 +836,20 @@
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
                 <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="NORTHWNDModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
