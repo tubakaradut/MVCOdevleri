@@ -1,0 +1,73 @@
+﻿@model List<AreaNorthWind.Models.Customer>
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Areas/Staff/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">@ViewBag.Title</h1>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Müşterilerin Listesi
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary float-end ms-3" href="~/staff/customer/AddCustomer">Müşteri Ekle</a>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>MüşteriID</th>
+                            <th>Şirket Adı</th>
+                            <th>Müşteri Adı</th>
+                            <th>Müşteri Ünvanı</th>
+                            <th>Ülke</th>
+                            <th>Kenti</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var customer in Model)
+                        {
+                            <tr>
+                                <td>@customer.CustomerID</td>
+                                <td>@customer.CompanyName</td>
+                                @if (customer.ContactName != null)
+                                {
+                                    <td>@customer.ContactName</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                @if (customer.ContactTitle != null)
+                                {
+                                    <td>@customer.ContactTitle</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                @if (customer.Country != null)
+                                {
+                                    <td>@customer.Country</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                @if (customer.City != null)
+                                {
+                                    <td>@customer.City</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

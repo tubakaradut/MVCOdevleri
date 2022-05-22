@@ -1,0 +1,76 @@
+﻿@model List<AreaNorthWind.Models.Supplier>
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">@ViewBag.Title</h1>
+        @*<ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/home/index">Northwind</a></li>
+            <li class="breadcrumb-item active">Tedarikçi Tabloları</li>
+        </ol>*@
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Tedarikçi Firmalarının Listesi
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary float-end ms-3" href="/Supplier/AddSupplier">Tedarikçi Firma Ekle</a>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>TedarikçiFirmaID</th>
+                            <th>Şirket Adı</th>
+                            <th>Yetkili Kişi Adı</th>
+                            <th>Yetkili Kişi Ünvanı</th>
+                            <th>Ülke</th>
+                            <th>Kenti</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var supplier in Model)
+                        {
+                            <tr>
+                                <td>@supplier.SupplierID</td>
+                                <td>@supplier.CompanyName</td>
+                                @if (supplier.ContactName != null)
+                                {
+                                    <td>@supplier.ContactName</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                @if (supplier.ContactTitle != null)
+                                {
+                                    <td>@supplier.ContactTitle</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                @if (supplier.Country != null)
+                                {
+                                    <td>@supplier.Country</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                @if (supplier.City != null)
+                                {
+                                    <td>@supplier.City</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

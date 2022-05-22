@@ -1,0 +1,79 @@
+﻿@model List<AreaNorthWind.Models.Employee>
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">@ViewBag.Title</h1>
+       
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Çalışanların Listesi
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary float-end ms-3" href="/Admin/Employe/AddEmploye">Çalışan Ekle</a>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>ÇalısanID</th>
+                            <th>Çalışan Adı</th>
+                            <th>Çalışan Soyadı</th>
+                            <th>Mesleği</th>
+                            <th>Ünvanı</th>
+                            <th>Doğum Tarihi</th>
+                            <th>Ülkesi</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employe in Model)
+                        {
+                            <tr>
+                                <td>@employe.EmployeeID</td>
+                                <td>@employe.FirstName</td>
+                                <td>@employe.LastName</td>
+                                @if (employe.Title != null)
+                                {
+                                    <td>@employe.Title</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                @if (employe.TitleOfCourtesy != null)
+                                {
+                                    <td>@employe.TitleOfCourtesy</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+
+                                @if (employe.BirthDate != null)
+                                {
+                                    <td>@employe.BirthDate</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+                                @if (employe.Country != null)
+                                {
+                                    <td>@employe.Country</td>
+                                }
+                                else
+                                {
+                                    <td>NULL</td>
+                                }
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+

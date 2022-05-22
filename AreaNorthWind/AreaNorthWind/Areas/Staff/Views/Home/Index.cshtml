@@ -1,0 +1,112 @@
+﻿
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Areas/Staff/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container-fluid px-4">
+        <h3 class="mt-4">~ KUZEY YELİ VERİLERİ ~</h3>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active"></li>
+        </ol>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">Ürün Sayısı</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">@ViewBag.ProductCount</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">Çalısanlar</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">@ViewBag.EmployeeCount</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">Müşteriler</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">@ViewBag.CustomerCount</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">Sipariş Sayısı</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">@ViewBag.OrderCount</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+               ÜRÜNLERİMİZ
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Product Id</th>
+                            <th>ürün Adı</th>
+                            <th>Kategori Id</th>
+                            <th>Kategori Adı</th>
+                            <th>Ürün Fiyatı</th>
+                            <th>Ürün Stok Miktarı</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Product Id</th>
+                            <th>Ürün Adı</th>
+                            <th>Kategori Id</th>
+                            <th>Kategori Adı</th>
+                            <th>Ürün Fiyatı</th>
+                            <th>Ürün Stok Miktarı</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (AreaNorthWind.Models.Product product in ViewBag.Product)
+                        {
+                            <tr>
+                                <td>@product.ProductID</td>
+                                <td>@product.ProductName</td>
+                                <td>@product.Category.CategoryID</td>
+                                <td>@product.Category.CategoryName</td>
+                                <td>@product.UnitPrice</td>
+                                <td>@product.UnitsInStock</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">@*Copyright &copy; Your Website 2022*@</div>
+            <div>
+                @*<a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>*@
+            </div>
+        </div>
+    </div>
+</footer>
+
+
