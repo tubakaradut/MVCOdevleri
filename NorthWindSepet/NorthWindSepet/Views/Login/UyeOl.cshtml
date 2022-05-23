@@ -1,0 +1,62 @@
+﻿@model NorthWindSepet.Models.User
+@{
+    ViewBag.Title = "UyeOl";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="contentContainer" class="container">
+    <div class="row">
+        <div id="realContent" class="col-xs-12">
+            <div class="row">
+                <section class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0">
+                    <div class="well well-lg">
+                        <div class="row">
+
+                            <!-- Registration Form -->
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-12">
+
+                                        @if (TempData["error"] != null)
+                                        {
+                                            <div>
+                                                <h5>@TempData["error"]</h5>
+                                            </div>
+                                        }
+
+                                    <form method="post">
+                                        <div>
+                                            @Html.DisplayNameFor(x => x.FullName)
+                                            @Html.ValidationMessageFor(x => x.FullName)
+                                            @Html.TextBoxFor(x => x.FullName, new { @class = "form-control" })
+
+                                        </div>
+                                        <div>
+                                            @Html.DisplayNameFor(x => x.Username)
+                                            @Html.ValidationMessageFor(x => x.Username)
+                                            @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+
+                                        </div>
+                                        <div>
+                                            @Html.DisplayNameFor(x => x.Email)
+                                            @Html.ValidationMessageFor(x => x.Email)
+                                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                                        </div>
+                                        <div>
+                                            @Html.DisplayNameFor(x => x.Password)
+                                            @Html.ValidationMessageFor(x => x.Password)
+                                            @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+                                        </div>
+                                        <button type="submit" style="margin-top:30px;">Kaydet</button>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
